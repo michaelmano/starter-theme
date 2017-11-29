@@ -67,3 +67,5 @@ class WordPressSite extends TimberSite
         return $twig;
     }
 }
+
+new WordPressSite();
