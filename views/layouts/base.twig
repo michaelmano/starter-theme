@@ -1,0 +1,44 @@
+<!doctype html>
+    <!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif]-->
+    <!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
+    <!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{ site.language_attributes }}> <![endif]-->
+    <!--[if gt IE 8]><!--><html class="no-js" {{ site.language_attributes }}> <!--<![endif]-->
+    <head>
+        <meta charset="{{ site.charset }}" />
+        <title>{{ wp_title ? wp_title ~ ' - ' ~ site.name : site.name }}</title>
+        <meta name="description" content="{{ site.description }}">
+        <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="author" href="{{ site.theme.link }}/humans.txt" />
+        <link rel="pingback" href="{{ site.pingback_url }}" />
+        {{ function('wp_head') }}
+    </head>
+	<body class="{{ body_class }}">
+		<div id="app">
+            <header>
+                {% block header %}
+                    <nav id="nav-main" role="navigation">
+                        {% include "menu.twig" with { 'menu': menu.get_items } %}
+                    </nav>
+                {% endblock %}
+            </header>
+            <main id="content">
+                <section>
+                    {% block content %}
+                        Sorry, no content
+                    {% endblock %}
+                </section>
+            </main>
+            {% block footer %}
+                <footer>
+                    {% include 'footer.twig' %}
+                </footer>
+            {% endblock %}
+        </div>
+        {% block scripts %}
+            {{ function('wp_footer') }}
+        {% endblock %}
+	</body>
+</html>

@@ -1,0 +1,7 @@
+{% if options.socials %}
+    {% for social in socials %}
+        <address>
+            <a href="{{ social.link }}">{{ social.name }}</a>
+        </address>
+    {% endfor %}
+{% endif %}
