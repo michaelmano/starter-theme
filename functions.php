@@ -2,7 +2,7 @@
 
 /**
  * This theme relies apon the Timber WordPress plugin.
- * 
+ *
  * https://timber.github.io/docs/
  */
 
@@ -11,9 +11,9 @@ if (!class_exists('Timber')) {
         echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
     });
 
-    add_filter('template_include', function ($template) {
-        return 'Please activate required theme plugins.';
-    });
+    add_filter('template_include', function($template) {
+		return get_stylesheet_directory() . '/views/layouts/activate-plugins.html';
+	});
 
     return;
 }
