@@ -25,7 +25,7 @@ class StarterTheme extends TimberSite
             'gallery',
             'caption',
         ]);
-        
+
         // Filters.
         add_filter('timber_context', [$this, 'add_to_context']);
         add_filter('get_twig', [$this, 'add_to_twig']);
@@ -44,7 +44,7 @@ class StarterTheme extends TimberSite
 
         parent::__construct();
     }
-    
+
     /**
      * This theme uses the $context variable which you can refference globally,
      * Below there is an example of navigation items being set which can be
@@ -83,7 +83,7 @@ class StarterTheme extends TimberSite
     public function add_to_mime_types($mimes)
     {
         $mimes['svg'] = 'image/svg+xml';
-        
+
         return $mimes;
     }
 
@@ -110,7 +110,7 @@ class StarterTheme extends TimberSite
     {
         unset($paths[0]);
         $paths[] = get_stylesheet_directory() . '/core/acf-json';
-        
+
         return $paths;
     }
 
@@ -169,7 +169,7 @@ class StarterTheme extends TimberSite
         wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/app.css');
         wp_enqueue_script('theme-script', get_template_directory_uri() . '/assets/js/app.js');
     }
-    
+
     /**
      * Enqueue the themes admin style
      * sheet and javascript files.
@@ -190,7 +190,7 @@ class StarterTheme extends TimberSite
     public function register_admin_sidebar()
     {
     }
-    
+
     /**
      * Registers more WordPress media file sizes.
      */
@@ -199,7 +199,7 @@ class StarterTheme extends TimberSite
         add_image_size('feature', 1920, 600, ['center', 'center']);
         add_image_size('card', 350, 200, ['center', 'center']);
     }
-    
+
     /**
      * @param string $class the class you want to build a bem class from.
      * @param array $item is the menu item inside of the navigational loop.
