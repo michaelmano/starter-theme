@@ -23,15 +23,15 @@ class StarterTheme extends TimberSite
             'comment-form',
             'search-form',
             'gallery',
-            'caption'
+            'caption',
         ]);
         
         // Filters.
         add_filter('timber_context', [$this, 'add_to_context']);
         add_filter('get_twig', [$this, 'add_to_twig']);
         add_filter('upload_mimes', [$this, 'add_to_mime_types']);
-        add_filter('acf/settings/save_json', 'add_save_acf_json');
-        add_filter('acf/settings/load_json', 'add_load_acf_json');
+        add_filter('acf/settings/save_json', [$this, 'add_save_acf_json']);
+        add_filter('acf/settings/load_json', [$this, 'add_load_acf_json']);
 
         // Add Actions.
         add_action('init', [$this, 'register_post_types']);
