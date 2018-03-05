@@ -34,6 +34,7 @@ class StarterTheme extends TimberSite
         add_filter('acf/settings/load_json', [$this, 'add_load_acf_json']);
 
         // Add Actions.
+        add_action('init', [$this, 'register_site_setup']);
         add_action('init', [$this, 'register_post_types']);
         add_action('init', [$this, 'register_menus']);
         add_action('init', [$this, 'register_acf_options_page']);
@@ -112,6 +113,27 @@ class StarterTheme extends TimberSite
         $paths[] = get_stylesheet_directory() . '/core/acf-json';
 
         return $paths;
+    }
+
+    /**
+     * Removes the auto generated pages, posts and comments from
+     * WordPress if the site has not been setup before.
+     */
+    public function register_site_setup()
+    {
+        if (false === get_option('bcm_site_activated')) {
+            wp_delete_post(1);
+            wp_delete_post(2);
+            wp_delete_comment(1);
+            update_option('image_default_link_type', 'file');
+            update_option('image_default_align', 'none');
+            update_option('uploads_use_yearmonth_folders', false);
+
+            global $wp_rewrite;
+            $wp_rewrite->set_permalink_structure('/%postname%/');
+            $wp_rewrite->flush_rules(true);
+            add_option('bcm_site_activated', true);
+        }
     }
 
     /**
