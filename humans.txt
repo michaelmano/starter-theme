@@ -1,0 +1,14 @@
+/* TEAM */
+
+	Developer: Michael Mano
+    Github: michaelmano
+	From: Brisbane, Queensland, Australia
+
+/* THANKS */
+    -
+
+/* SITE */
+	Last update: 07/03/2018
+	Language: English
+	Doctype: HTML5
+	IDE: Visual Studio Code
